@@ -1,0 +1,36 @@
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link {{ set_active_link(back_view_path('extensions.blog.post.create'), back_view_path('extensions.blog.post.index'), back_view_path('extensions.blog.category.index')) }}">
+                <i class="nav-icon fas fa-swatchbook"></i>
+                <p>
+                    {{ Lang::get('administrable-blog::translations.view.posts') }}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ back_route('extensions.blog.post.create') }}" class="nav-link {{ set_active_link(back_view_path('extensions.blog.post.create')) }}">
+                        <i class="far fa-plus nav-icon"></i>
+                        <p>{{ Lang::get('administrable-blog::translations.view.write') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ back_route('extensions.blog.post.index') }}" class="nav-link {{ set_active_link(back_view_path('extensions.blog.post.index')) }}">
+                        <i class="far fa-th-list nav-icon"></i>
+                        <p>{{ Lang::get('administrable-blog::translations.view.list') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ back_route('extensions.blog.category.index') }}" class="nav-link {{ set_active_link(back_view_path('extensions.blog.category.index')) }}">
+                        <i class="far fa-folder-open nav-icon"></i>
+                        <p>{{ Lang::get('administrable-blog::translations.view.categories') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ back_route('extensions.blog.tag.index') }}" class="nav-link {{ set_active_link(back_view_path('extensions.blog.tag.index')) }}">
+                        <i class="far fa-folder-open nav-icon"></i>
+                        <p>{{ Lang::get('administrable-blog::translations.view.tags') }}</p>
+                    </a>
+                </li>
+
+            </ul>
+        </li>

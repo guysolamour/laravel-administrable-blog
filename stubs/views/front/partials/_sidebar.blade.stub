@@ -1,0 +1,53 @@
+@php
+    $recent_posts = config('administrable-blog.models.post)::with('media')->online()->last(5)->get();
+    $categories   = config('administrable-blog.models.category')::withCount(['posts' => fn($query) => $query->where('online', true)])->last()->get();
+    $tags         = config('administrable-blog.models.tag')::withCount(['posts' => fn($query) => $query->where('online', true)])->last()->get();
+@endphp
+
+<div class="card mb-4" style="width: 18rem;">
+    <div class="card-header">
+        {{ Lang::get('administrable-blog::translations.view.search') }}
+    </div>
+    <form action="{{ front_route('{{extensionsFolder}}.{{extensionSingularSlug}}.search') }}" method="get" class="p-2">
+        <div class="form-group">
+            <input type="search" name="q" id="q" class="form-control" required>
+        </div>
+        <button type="submit" class="btn  btn-secondary btn-sm btn-block"><i class="fas fa-search"></i> {{ Lang::get('administrable-blog::translations.view.search') }}</button>
+    </form>
+</div>
+
+
+<div class="card mb-4" style="width: 18rem;">
+    <div class="card-header">
+        {{ Lang::get('administrable-blog::translations.view.categories') }}
+    </div>
+    <ul class="list-group list-group-flush">
+        @foreach ($categories as $category)
+        <li class="list-group-item"><a href="{{ front_route('{{extensionsFolder}}.{{extensionSingularSlug}}.category', $category) }}">{{ $category->name }} ({{ $category->posts_count }})</a></li>
+        @endforeach
+    </ul>
+</div>
+
+
+
+<div class="card mb-4" style="width: 18rem;">
+    <div class="card-header">
+        {{ Lang::get('administrable-blog::translations.view.tags') }}
+    </div>
+    <ul class="list-group list-group-flush">
+        @foreach ($tags as $tag)
+        <li class="list-group-item"><a href="{{ front_route('{{extensionsFolder}}.{{extensionSingularSlug}}.tag', $tag) }}">{{ $tag->name }} ({{ $tag->posts_count }})</a></li>
+        @endforeach
+    </ul>
+</div>
+
+<div class="card mb-4" style="width: 18rem;">
+    <div class="card-header">
+        {{ Lang::get('administrable-blog::translations.view.recent_posts') }}
+    </div>
+    <ul class="list-group list-group-flush">
+        @foreach ($recent_posts as $post)
+        <li class="list-group-item"><a href="{{ front_route('{{extensionsFolder}}.{{extensionSingularSlug}}.show', $post) }}">{{ $post->title }}</a></li>
+        @endforeach
+    </ul>
+</div>

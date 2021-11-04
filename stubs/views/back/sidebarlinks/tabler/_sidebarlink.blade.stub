@@ -1,0 +1,33 @@
+                    <li class="nav-item dropdown  {{ set_active_link(back_view_path('extensions.blog.post.create'), back_view_path('extensions.blog.post.index'), back_view_path('extensions.blog.category.index')) }}">
+                        <a class="nav-link dropdown-toggle" href="#navbar-extra" data-toggle="dropdown" role="button"
+                            aria-expanded="false">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="fa fa-swatchbook icon"></i>&nbsp;
+                            </span>
+                            <span class="nav-link-title">
+                                {{ Lang::get('administrable-blog::translations.view.posts') }}
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ back_route('extensions.blog.post.create') }}">
+                                    {{ Lang::get('administrable-blog::translations.view.write') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ back_route('extensions.blog.post.index') }}">
+                                    {{ Lang::get('administrable-blog::translations.view.list') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ back_route('extensions.blog.category.index') }}">
+                                    {{ Lang::get('administrable-blog::translations.view.categories') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ back_route('extensions.blog.tag.index') }}">
+                                    {{ Lang::get('administrable-blog::translations.view.tags') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>

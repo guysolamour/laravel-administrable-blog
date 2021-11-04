@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('{{extensionsFolder}}_{{extensionSingularSlug}}_posts', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('title');
+            $table->longText('content');
+            $table->boolean('online')->default(true);
+            $table->string('type')->default(config('administrable-blog.models.post')::TYPES['text']['name']);
+            $table->string('video_link')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->boolean('allow_comment')->default(true);
+            $table->string('slug')->unique();
+
+            $table->foreignId('author_id')->nullable()->constrained('{{pluralSlug}}')->onDelete('set null');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('{{extensionsFolder}}_{{extensionSingularSlug}}_posts');
+    }
+};

@@ -1,0 +1,22 @@
+@extends(front_view_path('layouts.default'))
+
+<x-administrable::seotags
+    :force="true"
+    :title="$tag->name"
+    :description="{$tag->name}"
+/>
+
+@section('content')
+<div class='container mt-5 pt-5'>
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="mb-4">Tous les articles de l'étiquette: <span
+                    class="font-italic font-weight-bold">`{{ $tag->name }}`</span></h4>
+            @include(front_view_path('{{extensionsFolder}}.{{extensionSingularSlug}}.partials._post'))
+        </div>
+        <div class="col-md-4">
+            @include(front_view_path('{{extensionsFolder}}.{{extensionSingularSlug}}.partials._sidebar'))
+        </div>
+    </div>
+</div>
+@endsection
