@@ -1,30 +1,26 @@
-# Crudgenerator
+# Laravel Administrable Blog
 
-[![GitHub Workflow Status](https://github.com/guysolamour/crudgenerator/workflows/Run%20tests/badge.svg)](https://github.com/guysolamour/crudgenerator/actions)
-[![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)
+[![Packagist](https://img.shields.io/packagist/v/guysolamour/laravel-administrable-blog.svg)](https://packagist.org/packages/guysolamour/laravel-administrable-blog)
+[![Packagist](https://poser.pugx.org/guysolamour/laravel-administrable-blog/d/total.svg)](https://packagist.org/packages/guysolamour/laravel-administrable-blog)
+[![Packagist](https://img.shields.io/packagist/l/guysolamour/laravel-administrable-blog.svg)](https://packagist.org/packages/guysolamour/laravel-administrable-blog)
 
-[![Packagist](https://img.shields.io/packagist/v/guysolamour/crudgenerator.svg)](https://packagist.org/packages/guysolamour/crudgenerator)
-[![Packagist](https://poser.pugx.org/guysolamour/crudgenerator/d/total.svg)](https://packagist.org/packages/guysolamour/crudgenerator)
-[![Packagist](https://img.shields.io/packagist/l/guysolamour/crudgenerator.svg)](https://packagist.org/packages/guysolamour/crudgenerator)
+This package is a blog extension for the manageable package.
+This package is an extension of the package - [laravel-administrable](https://github.com/guysolamour/administrable) and cannot be used outside of it.
+For the complete documentation [it's here](https://guysolamour.github.io/laravel-administrable/).
 
-Package description: CHANGE ME
 
 ## Installation
 
 Install via composer
 ```bash
-composer require guysolamour/crudgenerator
+composer require guysolamour/laravel-administrable-blog
 ```
 
 ### Publish package assets
 
 ```bash
-php artisan vendor:publish --provider="guysolamour\crudgenerator\ServiceProvider"
+php artisan vendor:publish --provider="Guysolamour\Administrable\Blog\ServiceProvider"
 ```
-
-## Usage
-
-CHANGE ME
 
 ## Security
 
@@ -33,8 +29,8 @@ instead of using the issue tracker.
 
 ## Credits
 
-- [Guy-roland ASSALE](https://github.com/guysolamour/crudgenerator)
-- [All contributors](https://github.com/guysolamour/crudgenerator/graphs/contributors)
+- [Guy-roland ASSALE](https://github.com/guysolamour/laravel-administrable-blog)
+- [All contributors](https://github.com/guysolamour/laravel-administrable-blog/graphs/contributors)
 
 This package is bootstrapped with the help of
 [melihovv/laravel-package-generator](https://github.com/melihovv/laravel-package-generator).
