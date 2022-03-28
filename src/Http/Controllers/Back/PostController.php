@@ -19,7 +19,7 @@ class PostController extends BaseController
      */
     public function index()
     {
-        $posts = config('administrable-blog.models.post')::with('categories')->last()->get();
+        $posts = config('administrable-blog.models.post')::with(['categories', 'tags'])->last()->get();
 
         return view('administrable-blog::' . Str::lower(config('administrable.back_namespace')) . '.posts.index', compact('posts'));
     }
