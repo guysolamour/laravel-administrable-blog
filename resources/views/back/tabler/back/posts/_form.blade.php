@@ -284,7 +284,7 @@
                     ])
                 }
 
-                this.currentForm.submit()
+                jQuery(this.currentForm).trigger('submit')
             },
             /** CATEGORIES */
             saveCategory(){
