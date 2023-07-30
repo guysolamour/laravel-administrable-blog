@@ -104,8 +104,8 @@
                                 <h3 class="card-title">{{ Lang::get('administrable-blog::translations.view.post.publication') }}</h3>
                             </div>
                             <div class="card-body">
-                                <p>{{ Lang::get('administrable-blog::translations.view.post.online') }} : {{ $post->online ? {{ Lang::get('administrable-blog::translations.default.yes') }} : {{ Lang::get('administrable-blog::translations.default.no') }} }}</p>
-                                <p>{{ Lang::get('administrable-blog::translations.view.post.allow_comment') }} : {{ $post->allow_comment ? {{ Lang::get('administrable-blog::translations.default.yes') }} : {{ Lang::get('administrable-blog::translations.default.no') }} }}</p>
+                                <p>{{ Lang::get('administrable-blog::translations.view.post.online') }} : {{ $post->online ?  Lang::get('administrable-blog::translations.default.yes') : Lang::get('administrable-blog::translations.default.no')  }}</p>
+                                <p>{{ Lang::get('administrable-blog::translations.view.post.allow_comment') }} : {{ $post->allow_comment ?  Lang::get('administrable-blog::translations.default.yes') :  Lang::get('administrable-blog::translations.default.no') }}</p>
 
                             </div>
                         </div>
