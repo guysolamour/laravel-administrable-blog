@@ -11,7 +11,7 @@ class PostController extends BaseController
     {
         $page = get_meta_page('blog');
 
-        $posts = config('administrable-blog.models.post')::online()->with('categories')->latest()->paginate(9);
+        $posts = config('administrable-blog.models.post')::online()->with('categories')->latest()->paginate(config('administrable-blog.paginate'));
 
         $categories = config('administrable-blog.models.category')::withCount('posts')->latest()->get();
 
@@ -29,7 +29,7 @@ class PostController extends BaseController
     {
         $category = config('administrable-blog.models.category')::where('slug', $slug)->firstOrFail();
 
-        $posts = $category->posts()->online()->with('categories', 'approvedComments')->latest()->paginate(5);
+        $posts = $category->posts()->online()->with('categories', 'approvedComments')->latest()->paginate(config('administrable-blog.paginate'));
 
         return front_view('extensions.blog.category', compact('category', 'posts'));
     }
@@ -38,7 +38,7 @@ class PostController extends BaseController
     {
         $tag = config('administrable-blog.models.tag')::where('slug', $slug)->firstOrFail();
 
-        $posts = $tag->posts()->online()->with('tags', 'approvedComments')->latest()->paginate(5);
+        $posts = $tag->posts()->online()->with('tags', 'approvedComments')->latest()->paginate(config('administrable-blog.paginate'));
 
         return front_view('extensions.blog.tag', compact('tag', 'posts'));
     }
@@ -50,7 +50,7 @@ class PostController extends BaseController
         $posts = config('administrable-blog.models.post')::online()->with('categories', 'approvedComments')
                  ->where('title', 'LIKE', '%' . $q . '%')
                     ->orWhere('content', 'LIKE', '%' . $q . '%')
-                    ->paginate(9);
+                    ->paginate(config('administrable-blog.paginate'));
 
         $posts->withPath(route(front_route_path('extensions.blog.search'), compact('q')));
         $page = get_meta_page('search');

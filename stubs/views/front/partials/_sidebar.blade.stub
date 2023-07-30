@@ -1,5 +1,5 @@
 @php
-    $recent_posts = config('administrable-blog.models.post)::with('media')->online()->last(5)->get();
+    $recent_posts = config('administrable-blog.models.post')::with('media')->online()->last(5)->get();
     $categories   = config('administrable-blog.models.category')::withCount(['posts' => fn($query) => $query->where('online', true)])->last()->get();
     $tags         = config('administrable-blog.models.tag')::withCount(['posts' => fn($query) => $query->where('online', true)])->last()->get();
 @endphp

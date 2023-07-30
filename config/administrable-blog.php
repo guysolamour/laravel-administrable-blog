@@ -9,6 +9,12 @@ return [
     | The migrations folder in database directory
     */
     'migrations_path' => database_path('extensions/blog'),
+    /*
+    |--------------------------------------------------------------------------
+    | The posts to display for each page
+    |--------------------------------------------------------------------------
+    */
+    'paginate' => 9,
     'models' => [
         'post'     =>  \Guysolamour\Administrable\Extensions\Blog\Models\Post::class,
         'category' =>  \Guysolamour\Administrable\Extensions\Blog\Models\Category::class,
